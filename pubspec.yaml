@@ -12,8 +12,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # BLOC
+  flutter_bloc: ^8.0.1
+  # DEPENDENCY INJECTION
+  get_it: ^7.2.0
+  http:
+  freezed_annotation: ^1.1.0
 
-
+  # FUNCTIONAL PROGRAMMING
+  dartz: ^0.10.1
  
   cupertino_icons: ^1.0.2
   eva_icons_flutter: ^3.1.0
@@ -24,6 +31,10 @@ dev_dependencies:
 
 
   flutter_lints: ^1.0.0
+
+  freezed: ^1.1.1
+  json_serializable: ^6.1.5
+  build_runner: ^2.1.7
 
 
 flutter:
