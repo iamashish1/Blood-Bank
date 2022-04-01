@@ -20,14 +20,14 @@ class HomePage extends StatelessWidget {
             Positioned(
               top: 45,
               child: Container(
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
+                decoration:  BoxDecoration(
+                    color: AppColors.lightBlue.withOpacity(0.1),
+                    borderRadius:const BorderRadius.only(
                         topLeft: Radius.circular(22),
                         topRight: Radius.circular(22))),
                 width: size.width,
                 height: size.height - kToolbarHeight,
-                child: BodySectionWidget(),
+                child: const BodySectionWidget(),
               ),
             ),
             

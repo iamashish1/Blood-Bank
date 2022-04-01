@@ -1,4 +1,5 @@
 import 'package:blood_bank_task/core/theme/custom_theme.dart';
+import 'package:blood_bank_task/core/widgets/bottom_nav/bottom_nav.dart';
 import 'package:blood_bank_task/features/homepage/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: CustomTheme.lightTheme,
-      home:const HomePage(),
+      home:const BottomNav(),
     );
   }
 }

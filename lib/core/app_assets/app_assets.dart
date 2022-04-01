@@ -5,6 +5,6 @@ class AppAssets {
   
 
   //app images
-  static const userImage = 'assets/images/user.png';
+  static const hospitalImage = 'assets/images/hospital.png';
 
 }
