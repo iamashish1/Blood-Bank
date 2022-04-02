@@ -185,7 +185,7 @@ class _$HomeStateTearOff {
   }
 
   _LoadSuccess done(
-      {bool isLoading = false, String? error, required UserModel data}) {
+      {bool isLoading = false, String? error, required List<UserModel> data}) {
     return _LoadSuccess(
       isLoading: isLoading,
       error: error,
@@ -205,20 +205,21 @@ mixin _$HomeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isLoading, String? error) initial,
-    required TResult Function(bool isLoading, String? error, UserModel data)
+    required TResult Function(
+            bool isLoading, String? error, List<UserModel> data)
         done,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool isLoading, String? error)? initial,
-    TResult Function(bool isLoading, String? error, UserModel data)? done,
+    TResult Function(bool isLoading, String? error, List<UserModel> data)? done,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isLoading, String? error)? initial,
-    TResult Function(bool isLoading, String? error, UserModel data)? done,
+    TResult Function(bool isLoading, String? error, List<UserModel> data)? done,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -357,7 +358,8 @@ class _$_LoadInitial implements _LoadInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isLoading, String? error) initial,
-    required TResult Function(bool isLoading, String? error, UserModel data)
+    required TResult Function(
+            bool isLoading, String? error, List<UserModel> data)
         done,
   }) {
     return initial(isLoading, error);
@@ -367,7 +369,7 @@ class _$_LoadInitial implements _LoadInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool isLoading, String? error)? initial,
-    TResult Function(bool isLoading, String? error, UserModel data)? done,
+    TResult Function(bool isLoading, String? error, List<UserModel> data)? done,
   }) {
     return initial?.call(isLoading, error);
   }
@@ -376,7 +378,7 @@ class _$_LoadInitial implements _LoadInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isLoading, String? error)? initial,
-    TResult Function(bool isLoading, String? error, UserModel data)? done,
+    TResult Function(bool isLoading, String? error, List<UserModel> data)? done,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -436,7 +438,7 @@ abstract class _$LoadSuccessCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
           _LoadSuccess value, $Res Function(_LoadSuccess) then) =
       __$LoadSuccessCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLoading, String? error, UserModel data});
+  $Res call({bool isLoading, String? error, List<UserModel> data});
 }
 
 /// @nodoc
@@ -467,7 +469,7 @@ class __$LoadSuccessCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as UserModel,
+              as List<UserModel>,
     ));
   }
 }
@@ -484,7 +486,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   @override
   final String? error;
   @override
-  final UserModel data;
+  final List<UserModel> data;
 
   @override
   String toString() {
@@ -517,7 +519,8 @@ class _$_LoadSuccess implements _LoadSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool isLoading, String? error) initial,
-    required TResult Function(bool isLoading, String? error, UserModel data)
+    required TResult Function(
+            bool isLoading, String? error, List<UserModel> data)
         done,
   }) {
     return done(isLoading, error, data);
@@ -527,7 +530,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(bool isLoading, String? error)? initial,
-    TResult Function(bool isLoading, String? error, UserModel data)? done,
+    TResult Function(bool isLoading, String? error, List<UserModel> data)? done,
   }) {
     return done?.call(isLoading, error, data);
   }
@@ -536,7 +539,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool isLoading, String? error)? initial,
-    TResult Function(bool isLoading, String? error, UserModel data)? done,
+    TResult Function(bool isLoading, String? error, List<UserModel> data)? done,
     required TResult orElse(),
   }) {
     if (done != null) {
@@ -581,13 +584,13 @@ abstract class _LoadSuccess implements HomeState {
   const factory _LoadSuccess(
       {bool isLoading,
       String? error,
-      required UserModel data}) = _$_LoadSuccess;
+      required List<UserModel> data}) = _$_LoadSuccess;
 
   @override
   bool get isLoading;
   @override
   String? get error;
-  UserModel get data;
+  List<UserModel> get data;
   @override
   @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>

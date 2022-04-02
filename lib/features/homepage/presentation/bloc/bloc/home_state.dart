@@ -10,6 +10,6 @@ class HomeState with _$HomeState {
   const factory HomeState.done({
     @Default(false) bool isLoading,
     String? error,
-    required UserModel data,
+    required List<UserModel> data,
   }) = _LoadSuccess;
 }

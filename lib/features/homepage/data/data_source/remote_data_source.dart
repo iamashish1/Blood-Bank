@@ -16,23 +16,20 @@ abstract class UserProfileRemoteDataSource {
 class RemoteDataSourceImpl implements UserProfileRemoteDataSource {
   @override
   Future<List<UserModel>> fetchUser() async {
-    print('out side remote data');
-    Uri url = Uri.parse(Urls.user);
-    print(url);
+    try {
+      var response = await http.get(Uri.https(Urls.baseUrl, 'users'));
+      if (response.statusCode == 200) {
+        List<UserModel> userList = (jsonDecode(response.body) as List)
+            .map((e) => UserModel.fromJson(e))
+            .toList();
 
-    var response = await http.get(Uri.https(Urls.baseUrl, 'users'));
-    print(response.statusCode);
-
-    if (response.statusCode == 200) {
-      List<UserModel> userList = (jsonDecode(response.body) as List)
-          .map((e) => UserModel.fromJson(e))
-          .toList();
-          print(userList[0].email);
-
-      return userList;
-    } else {
-      print(response);
-      throw Exception('An error');
+        print(userList[4].email);
+        return userList;
+      } else {
+        throw Exception('An error');
+      }
+    } catch (e) {
+      rethrow;
     }
   }
 }

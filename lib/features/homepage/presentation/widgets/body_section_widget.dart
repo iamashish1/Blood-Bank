@@ -1,9 +1,11 @@
+import 'package:blood_bank_task/core/theme/app_colors.dart';
 import 'package:blood_bank_task/features/homepage/presentation/bloc/bloc/home_bloc.dart';
 import 'package:blood_bank_task/features/homepage/presentation/widgets/blood_bank_detail_container.dart';
 import 'package:blood_bank_task/features/homepage/presentation/widgets/search_section_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:blood_bank_task/injection.dart';
+
 class BodySectionWidget extends StatefulWidget {
   const BodySectionWidget({Key? key}) : super(key: key);
 
@@ -29,19 +31,33 @@ class _BodySectionWidgetState extends State<BodySectionWidget> {
           }
           if (state.isLoading == false && state.error == null) {
             print('done....');
-            
           }
         },
         builder: (context, state) {
           return Column(
             children: [
               const SearchSectionWidget(),
-              Expanded(
-                  child: ListView.builder(
-                      itemCount: 7,
-                      itemBuilder: (context, index) {
-                        return const BloodBankDetail();
-                      })),
+              Builder(builder: (context) {
+                return state.maybeWhen(
+                  done: (isLoading, error, data) {
+                    print(data[5].email);
+                    return Expanded(
+                        child: ListView.builder(
+                            itemCount: data.length,
+                            itemBuilder: (context, index) {
+                              return  BloodBankDetail(
+                                data[index]
+                              );
+                            }));
+                  },
+                  orElse: () {
+                    return Center(child:CircularProgressIndicator(
+
+                      color: AppColors.accentGrey,
+                    ) ,) ;
+                  },
+                );
+              }),
               const SizedBox(
                 height: 70,
               ),

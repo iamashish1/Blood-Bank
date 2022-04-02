@@ -20,7 +20,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       isSuccessful.fold(
         (l) => {emit(state.copyWith(isLoading: false, error: 'Load Failed'))},
         (r) => emit(
-          HomeState.done(isLoading: false, error: null, data: r[0]),
+          HomeState.done(isLoading: false, error: null, data: r),
         ),
       );
     });

@@ -1,10 +1,12 @@
 import 'package:blood_bank_task/core/app_assets/app_assets.dart';
 import 'package:blood_bank_task/core/theme/app_colors.dart';
+import 'package:blood_bank_task/features/homepage/data/model/user_model.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 
 class BloodBankDetail extends StatelessWidget {
-  const BloodBankDetail({Key? key}) : super(key: key);
+ final UserModel data;
+   BloodBankDetail(this.data, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +48,9 @@ class BloodBankDetail extends StatelessWidget {
                    
                     crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('ITNYB Blood Bank',style: Theme.of(context).textTheme.bodyMedium,),
-                  Text('Blood Group: A+',style: Theme.of(context).textTheme.bodySmall,),
-                  Text('+977 9860694938',style: Theme.of(context).textTheme.bodySmall,),
+                  Text(data.email,style: Theme.of(context).textTheme.bodyMedium,),
+                  Text(data.id,style: Theme.of(context).textTheme.bodySmall,),
+                  Text(data.username,style: Theme.of(context).textTheme.bodySmall,),
                   Row(
                     children: [Icon(EvaIcons.pin,color: AppColors.lightBlue,), Text('3 km away',style: Theme.of(context).textTheme.bodyText1!.copyWith(
                       color: Colors.green
